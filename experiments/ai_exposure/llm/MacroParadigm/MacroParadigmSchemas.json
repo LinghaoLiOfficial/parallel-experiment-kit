@@ -1,0 +1,11 @@
+[
+    {
+        "type": "object",
+        "properties": {
+            "judgment": {
+                "type": "string"
+            }
+        },
+        "required": ["judgment"]
+    }
+]

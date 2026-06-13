@@ -1,0 +1,17 @@
+[
+    {
+        "type": "object",
+        "properties": {
+            "chinese_name": {
+                "type": "string"
+            },
+            "core_function": {
+                "type": "string"
+            },
+            "research_application": {
+                "type": "string"
+            }
+        },
+        "required": ["chinese_name", "core_function", "research_application"]
+    }
+]

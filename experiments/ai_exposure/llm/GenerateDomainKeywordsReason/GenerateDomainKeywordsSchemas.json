@@ -1,0 +1,11 @@
+[
+    {
+        "type": "object",
+        "properties": {
+            "domains_keywords": {
+                "type": "array"
+            }
+        },
+        "required": ["domains_keywords"]
+    }
+]

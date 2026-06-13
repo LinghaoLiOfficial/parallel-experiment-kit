@@ -1,0 +1,86 @@
+[
+    {
+        "type": "object",
+        "properties": {
+            "phase_ai_usage": {
+                "type": "object",
+                "properties": {
+                    "hypothesis generation": {
+                        "type": "string"
+                    },
+                    "experimental analysis": {
+                        "type": "string"
+                    },
+                    "data processing": {
+                        "type": "string"
+                    },
+                    "result analysis": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "hypothesis generation",
+                    "experimental analysis",
+                    "data processing",
+                    "result analysis"
+                ]
+            },
+            "ai_functions": {
+                "anyOf": [
+                    {
+                        "type": "array"
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "ai_role": {
+                "anyOf": [
+                    {
+                        "type": "array"
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "ai_role_sentence": {
+                "anyOf": [
+                    {
+                        "type": "array"
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "essentiality": {
+                "anyOf": [
+                    {
+                        "type": "integer"
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "essentiality_sentence": {
+                "anyOf": [
+                    {
+                        "type": "array"
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "required": [
+            "phase_ai_usage",
+            "ai_functions",
+            "ai_role",
+            "essentiality"
+        ]
+    }
+]

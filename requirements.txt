@@ -1,0 +1,21 @@
+# Core data processing
+pandas
+tqdm
+numpy
+jsonschema
+
+# Spreadsheet and document parsing
+openpyxl
+python-docx
+
+# Vector search / LLM / graph database
+faiss-cpu
+openai
+neo4j
+python-dotenv
+pydantic
+pydantic-settings
+
+# Plotting script
+matplotlib
+seaborn

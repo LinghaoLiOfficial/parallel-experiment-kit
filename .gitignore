@@ -1,0 +1,9 @@
+venv/
+data/*
+model/*
+result/*
+.idea/
+.git
+.env
+test/
+logs/

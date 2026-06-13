@@ -1,0 +1,27 @@
+{
+    "system_content": {
+        "task": "design a novel, comprehensive, and implementable AI-native research plan to achieve the goals implied by a given academic research question. The plan must fundamentally rethink the research approach by leveraging core AI capabilities as the primary engine of inquiry, not merely as supportive tools. The output should be a detailed, step-by-step blueprint."
+    },
+    "user_content": {
+        "input": {
+            "object": "",
+            "head": "",
+            "properties": {
+                "research_question": "{research_question}"
+            }
+        },
+        "descriptions": [
+            {
+                "field": "Output Descriptions",
+                "heads": [
+                    {
+                        "head": "Based on the input research question, design an innovative AI-native research plan. Return the result strictly in JSON format (without any other text) with a single field: 'ai_native_research_solution', whose value is a long-form string describing the complete AI-native research plan in detail",
+                        "properties": {
+                            "ai_native_research_solution": "whole detailed AI-native research solution"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

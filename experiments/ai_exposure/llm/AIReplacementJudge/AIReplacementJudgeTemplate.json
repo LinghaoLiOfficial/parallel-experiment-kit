@@ -1,0 +1,59 @@
+{
+    "system_content": {
+        "task": "Evaluate whether a newly designed AI-based research methodology can completely replace an original experimental methodology, identify step inconsistencies, and provide adaptation recommendations."
+    },
+    "user_content": {
+        "input": {
+            "object": "",
+            "head": "",
+            "properties": {
+                "research_problem": "{research_problem}",
+                "original_methodology": "{original_methodology}",
+                "new_ai_methodology": "{new_ai_methodology}",
+                "replacement_level_list": [
+                    "complete_replacement",
+                    "partial_replacement",
+                    "no_replacement"
+                ]
+            }
+        },
+        "descriptions": [
+            {
+                "field": "Input Descriptions",
+                "heads": [
+                    {
+                        "head": "",
+                        "properties": {
+                            "research_problem": "Description of the research question or objective",
+                            "original_methodology": "The experimental or procedural steps from an existing paper or study that requires physical/traditional experiments",
+                            "new_ai_methodology": "The proposed AI-based methodology that may eliminate or alter experimental steps",
+                            "replacement_level_list": "The replacement_level_list defines three elements: 'complete_replacement' means the AI method can fully substitute all original experimental steps while achieving equivalent or superior research outcomes; 'partial_replacement' means the AI method replaces some but not all experimental steps; 'no_replacement' means the AI method cannot adequately substitute the original experimental steps"
+                        }
+                    }
+                ]
+            },
+            {
+                "field": "Output Descriptions",
+                "heads": [
+                    {
+                        "head": "Analyze the methodology transformation to determine if AI can replace experiments and identify step consistency. Strictly return the result only in JSON format (without any other text) with the following fields",
+                        "properties": {
+                            "replacement_level": "Choose strictly between 'complete_replacement', 'partial_replacement', or 'no_replacement'"
+                        }
+                    }
+                ]
+            }
+        ],
+        "examples": {
+            "input": [],
+            "output": [
+                {
+                    "object": "evaluation result",
+                    "properties": {
+                        "replacement_level": "partial_replacement"
+                    }
+                }
+            ]
+        }
+    }
+}

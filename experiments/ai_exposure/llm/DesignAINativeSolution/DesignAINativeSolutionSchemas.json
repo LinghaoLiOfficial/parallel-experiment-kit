@@ -1,0 +1,11 @@
+[
+    {
+        "type": "object",
+        "properties": {
+            "ai_native_research_solution": {
+                "type": "string"
+            }
+        },
+        "required": ["ai_native_research_solution"]
+    }
+]

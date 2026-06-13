@@ -1,0 +1,11 @@
+[
+    {
+        "type": "object",
+        "properties": {
+            "replacement_level": {
+                "type": "string"
+            }
+        },
+        "required": ["replacement_level"]
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "type": "object",
+        "properties": {
+            "ai_necessity": {
+                "type": "string"
+            },
+            "ai_necessity_reason": {
+                "type": "string"
+            },
+            "ai_usage_level": {
+                "type": "string"
+            },
+            "ai_usage_level_reason": {
+                "type": "string"
+            }
+        },
+        "required": ["ai_necessity", "ai_necessity_reason", "ai_usage_level", "ai_usage_level_reason"]
+    }
+]

@@ -1,0 +1,43 @@
+{
+    "system_content": {
+        "task": "summarize the core research question of the paper based on the paper title and abstract, and determine if the research question is related to the themes of 'energy transition' and 'climate change'."
+    },
+    "user_content": {
+        "input": {
+            "object": "",
+            "head": "",
+            "properties": {
+                "paper title": "{paper_title}",
+                "paper abstract": "{paper_abstract}"
+            }
+        },
+        "descriptions": [
+            {
+                "field": "Output Descriptions",
+                "heads": [
+                    {
+                        "head": "Analyze the paper and identify its core research question and determine if it is related to the 'energy transition' and 'climate change' themes. Strictly return the result only in JSON format (without any other text) with the following fields",
+                        "properties": {
+                            "core_research_question": "the main research question addressed in the paper",
+                            "energy_transition_related": "'yes' or 'no' indicating if the research question is related to the energy transition theme",
+                            "climate_change_related": "'yes' or 'no' indicating if the research question is related to the climate change theme"
+                        }
+                    }
+                ]
+            }
+        ],
+        "examples": {
+            "input": [],
+            "output": [
+                {
+                    "object": "analysis result",
+                    "properties": {
+                        "core_research_question": "To what extent can the integration of grid-scale battery storage systems improve the reliability and economic viability of electricity grids with high penetration of variable renewable energy sources like solar and wind?",
+                        "energy_transition_related": "yes",
+                        "climate_change_related": "yes"
+                    }
+                }
+            ]
+        }
+    }
+}
