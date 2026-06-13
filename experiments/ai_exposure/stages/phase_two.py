@@ -70,8 +70,8 @@ class AIExposurePhaseTwoStage(AIExposureBaseStage):
             ai_role_assessment_result = llm_service.parse_text(
                 llm_name=context.config["llm_name"],
                 llm_version=context.config["llm_version"],
-                template_path="experiments/ai_exposure/llm/AIRoleAssessment/AIRoleAssessmentTemplate.json",
-                schemas_path="experiments/ai_exposure/llm/AIRoleAssessment/AIRoleAssessmentSchemas.json",
+                prompt_path="experiments/ai_exposure/llm/AIRoleAssessment/AIRoleAssessmentPrompt.j2",
+                format_check_path="experiments/ai_exposure/llm/AIRoleAssessment/AIRoleAssessmentFormatCheck.json",
                 input_params={"paper_title": paper_title, "paper_abstract": paper_abstract},
                 lang="en"
             )

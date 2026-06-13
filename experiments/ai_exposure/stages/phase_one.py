@@ -57,8 +57,8 @@ class AIExposurePhaseOneStage(AIExposureBaseStage):
             filter_review_paper_result = llm_service.parse_text(
                 llm_name=context.config["llm_name"],
                 llm_version=context.config["llm_version"],
-                template_path="experiments/ai_exposure/llm/FilterReviewPaper/FilterReviewPaperTemplate.json",
-                schemas_path="experiments/ai_exposure/llm/FilterReviewPaper/FilterReviewPaperSchemas.json",
+                prompt_path="experiments/ai_exposure/llm/FilterReviewPaper/FilterReviewPaperPrompt.j2",
+                format_check_path="experiments/ai_exposure/llm/FilterReviewPaper/FilterReviewPaperFormatCheck.json",
                 input_params={"paper_title": paper_title, "paper_abstract": paper_abstract},
                 lang="en"
             )
@@ -101,8 +101,8 @@ class AIExposurePhaseOneStage(AIExposureBaseStage):
             macro_paradigm_result = llm_service.parse_text(
                 llm_name=context.config["llm_name"],
                 llm_version=context.config["llm_version"],
-                template_path="experiments/ai_exposure/llm/MacroParadigm/MacroParadigmTemplate.json",
-                schemas_path="experiments/ai_exposure/llm/MacroParadigm/MacroParadigmSchemas.json",
+                prompt_path="experiments/ai_exposure/llm/MacroParadigm/MacroParadigmPrompt.j2",
+                format_check_path="experiments/ai_exposure/llm/MacroParadigm/MacroParadigmFormatCheck.json",
                 input_params={"paper_title": paper_title, "paper_abstract": paper_abstract},
                 lang="en"
             )
@@ -117,8 +117,8 @@ class AIExposurePhaseOneStage(AIExposureBaseStage):
             core_research_question_result = llm_service.parse_text(
                 llm_name=context.config["llm_name"],
                 llm_version=context.config["llm_version"],
-                template_path="experiments/ai_exposure/llm/CoreResearchQuestion/CoreResearchQuestionTemplate.json",
-                schemas_path="experiments/ai_exposure/llm/CoreResearchQuestion/CoreResearchQuestionSchemas.json",
+                prompt_path="experiments/ai_exposure/llm/CoreResearchQuestion/CoreResearchQuestionPrompt.j2",
+                format_check_path="experiments/ai_exposure/llm/CoreResearchQuestion/CoreResearchQuestionFormatCheck.json",
                 input_params={"paper_title": paper_title, "paper_abstract": paper_abstract},
                 lang="en"
             )
@@ -141,8 +141,8 @@ class AIExposurePhaseOneStage(AIExposureBaseStage):
             research_task_phase_mapping_result = llm_service.parse_text(
                 llm_name=context.config["llm_name"],
                 llm_version=context.config["llm_version"],
-                template_path="experiments/ai_exposure/llm/ResearchTaskPhaseMapping/ResearchTaskPhaseMappingTemplate.json",
-                schemas_path="experiments/ai_exposure/llm/ResearchTaskPhaseMapping/ResearchTaskPhaseMappingSchemas.json",
+                prompt_path="experiments/ai_exposure/llm/ResearchTaskPhaseMapping/ResearchTaskPhaseMappingPrompt.j2",
+                format_check_path="experiments/ai_exposure/llm/ResearchTaskPhaseMapping/ResearchTaskPhaseMappingFormatCheck.json",
                 input_params={"paper_title": paper_title, "paper_abstract": paper_abstract},
                 lang="en"
             )

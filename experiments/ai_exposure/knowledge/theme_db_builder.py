@@ -142,8 +142,8 @@ class ThemeDBBuilder:
             ai_tech_create_result = LLMAPIPromptParser.parse_text(
                 llm_name=llm_name,
                 llm_version=llm_version,
-                template_path="experiments/ai_exposure/llm/AITechCreate/AITechCreateTemplate.json",
-                schemas_path="experiments/ai_exposure/llm/AITechCreate/AITechCreateSchemas.json",
+                prompt_path="experiments/ai_exposure/llm/AITechCreate/AITechCreatePrompt.j2",
+                format_check_path="experiments/ai_exposure/llm/AITechCreate/AITechCreateFormatCheck.json",
                 input_params={"en_name": en_name},
                 lang="en"
             )
@@ -164,8 +164,8 @@ class ThemeDBBuilder:
         generate_domain_keywords_result = LLMAPIPromptParser.parse_text(
             llm_name=llm_name,
             llm_version=llm_version,
-            template_path="experiments/ai_exposure/llm/GenerateDomainKeywords/GenerateDomainKeywordsTemplate.json",
-            schemas_path="experiments/ai_exposure/llm/GenerateDomainKeywords/GenerateDomainKeywordsSchemas.json",
+            prompt_path="experiments/ai_exposure/llm/GenerateDomainKeywords/GenerateDomainKeywordsPrompt.j2",
+            format_check_path="experiments/ai_exposure/llm/GenerateDomainKeywords/GenerateDomainKeywordsFormatCheck.json",
             input_params={"domains": str([x for x in result_dict.keys()])},
             lang="en"
         )
@@ -175,8 +175,21 @@ class ThemeDBBuilder:
 
         domain_tech_list = generate_domain_keywords_result.get_data_on_results()["domains_keywords"]
         for domain_entity in domain_tech_list:
-            if domain_entity["domain"] in result_dict.keys():
-                result_dict[domain_entity["domain"]]["keyword_list"] = domain_entity["key_technical_keywords"]
+            domain_name = str(domain_entity.get("domain", "")).strip().lower()
+            keyword_list = domain_entity.get("key_technical_keywords", [])
+            if domain_name in result_dict.keys() and isinstance(keyword_list, list) and keyword_list:
+                cleaned_keyword_list = [
+                    str(keyword).strip()
+                    for keyword in keyword_list
+                    if str(keyword).strip()
+                ]
+                if cleaned_keyword_list:
+                    result_dict[domain_name]["keyword_list"] = cleaned_keyword_list
+
+        for domain_name, result in result_dict.items():
+            if "keyword_list" not in result or not result["keyword_list"]:
+                logger.warning(f"missing keyword_list for ai tech domain={domain_name}, fallback to domain name")
+                result["keyword_list"] = [result["en_name"]]
 
         faiss_driver = FAISSVectorDBDriver(
             file_save_path=ai_tech_vector_db_path,

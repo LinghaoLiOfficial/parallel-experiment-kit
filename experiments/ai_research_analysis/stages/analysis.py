@@ -167,8 +167,8 @@ class AIResearchAnalysisStage(AIResearchAnalysisBaseStage):
             parse_result = llm_service.parse_text(
                 llm_name=context.config["llm_name"],
                 llm_version=context.config["llm_version"],
-                template_path="experiments/ai_research_analysis/llm/AbstractAIResearchAnalysis/AbstractAIResearchAnalysisTemplate.json",
-                schemas_path="experiments/ai_research_analysis/llm/AbstractAIResearchAnalysis/AbstractAIResearchAnalysisSchemas.json",
+                prompt_path="experiments/ai_research_analysis/llm/AbstractAIResearchAnalysis/AbstractAIResearchAnalysisPrompt.j2",
+                format_check_path="experiments/ai_research_analysis/llm/AbstractAIResearchAnalysis/AbstractAIResearchAnalysisFormatCheck.json",
                 input_params={
                     "abstract_ID": str(row["abstract_ID"]),
                     "paper_title": row["title"],
@@ -315,7 +315,7 @@ class AIResearchAnalysisStage(AIResearchAnalysisBaseStage):
                 return "none"
             if len(values) == 1:
                 return str(values[0])
-            return "|".join(str(v) for v in values)
+            return ",".join(str(v) for v in values)
         return str(values)
 
     @staticmethod

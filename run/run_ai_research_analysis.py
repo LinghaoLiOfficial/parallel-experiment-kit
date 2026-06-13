@@ -41,7 +41,7 @@ if __name__ == '__main__':
         "analysis_output_data_path": analysis_output_data_path,
         "data_info_path": data_info_path,
         "checkpoint_rows": 10,
-        "max_rows_per_file": 20,
+        "max_rows_per_file": 60,
         "resume": True,
         "task_id": task_id,
         "max_paper_num": 60,

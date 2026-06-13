@@ -82,8 +82,8 @@ class AIExposurePhaseThreeStage(AIExposureBaseStage):
             ai_research_task_phase_mapping_result = llm_service.parse_text(
                 llm_name=context.config["llm_name"],
                 llm_version=context.config["llm_version"],
-                template_path="experiments/ai_exposure/llm/AIDesignResearchTaskPhaseMapping/AIDesignResearchTaskPhaseMappingTemplate.json",
-                schemas_path="experiments/ai_exposure/llm/AIDesignResearchTaskPhaseMapping/AIDesignResearchTaskPhaseMappingSchemas.json",
+                prompt_path="experiments/ai_exposure/llm/AIDesignResearchTaskPhaseMapping/AIDesignResearchTaskPhaseMappingPrompt.j2",
+                format_check_path="experiments/ai_exposure/llm/AIDesignResearchTaskPhaseMapping/AIDesignResearchTaskPhaseMappingFormatCheck.json",
                 input_params={"research_question": self.phase_two_result_df.loc[idx, "core_research_question_judgment"]},
                 lang="en"
             )
@@ -199,8 +199,8 @@ class AIExposurePhaseThreeStage(AIExposureBaseStage):
             ai_replacement_judge_result = llm_service.parse_text(
                 llm_name=context.config["llm_name"],
                 llm_version=context.config["llm_version"],
-                template_path="experiments/ai_exposure/llm/AIReplacementJudge/AIReplacementJudgeTemplate.json",
-                schemas_path="experiments/ai_exposure/llm/AIReplacementJudge/AIReplacementJudgeSchemas.json",
+                prompt_path="experiments/ai_exposure/llm/AIReplacementJudge/AIReplacementJudgePrompt.j2",
+                format_check_path="experiments/ai_exposure/llm/AIReplacementJudge/AIReplacementJudgeFormatCheck.json",
                 input_params={
                     "research_problem": output_data["core_research_question_judgment"],
                     "original_methodology": output_data["research_task_phase_mapping"],

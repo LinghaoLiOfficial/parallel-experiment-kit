@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 from infrastructure.base.result import Result
 from infrastructure.logging.logger import get_logger
@@ -11,8 +12,12 @@ class JsonFileHandler:
     @classmethod
     def read(cls, file_path):
         try:
+            suffix = Path(file_path).suffix.lower()
             with open(file_path, "r", encoding="utf-8") as file:
-                file_data = json.load(file)
+                if suffix == ".j2":
+                    file_data = file.read()
+                else:
+                    file_data = json.load(file)
         except Exception as exc:
             logger.warning(f"JsonFileHandler read error, e={exc}")
             return Result.build_error()
